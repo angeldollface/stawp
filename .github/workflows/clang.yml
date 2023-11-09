@@ -1,0 +1,17 @@
+on: [push]
+name: STAWP CI
+jobs:
+  build_and_test:
+    name: STAWP CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Compile Stawp."
+        run: make && make perm
+
+      - name: "Get time."
+        run: ./stawp time
+
+      - name: "Get date."
+        run: ./stawp date
