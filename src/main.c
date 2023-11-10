@@ -1,8 +1,16 @@
+/*
+STAWP by Alexander Abraham 
+a.k.a. "Angel Dollface".
+Licensed under the MIT license.
+*/
+
 #include <time.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
+// This function gets the current
+// date as a string.
 const char* get_date(){
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
@@ -11,6 +19,8 @@ const char* get_date(){
     return result;
 }
 
+// This function gets the current
+// time as a string.
 const char* get_time(){
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
@@ -19,6 +29,7 @@ const char* get_time(){
     return result;
 }
 
+// Stawp's tiny CLI.
 void cli(int argc, char* argv[]){
     char *err_msg = "Unrecognized arguments!";
     if (argc == 2){
@@ -39,6 +50,8 @@ void cli(int argc, char* argv[]){
     }
 }
 
+// The main point of entry for
+// the C compiler.
 int main(int argc, char* argv[]){
     cli(argc, argv);
     return 0;
